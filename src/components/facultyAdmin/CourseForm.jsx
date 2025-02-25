@@ -13,6 +13,11 @@ const CourseForm = ({
   const [prerequisites, setPrerequisites] = useState(""); // Comma-separated input
   const [selectedDepartment, setSelectedDepartment] = useState(departmentId || "");
 
+  // Set API URL based on NODE_ENV
+  const apiUrl = process.env.NODE_ENV === 'production'
+    ? 'https://backend-lms-render.onrender.com'
+    : 'http://localhost:5000';
+
   useEffect(() => {
     if (editingCourse) {
       setName(editingCourse.name);
@@ -53,8 +58,8 @@ const CourseForm = ({
 
     const method = editingCourse ? "PATCH" : "POST";
     const url = editingCourse
-      ? `${import.meta.env.VITE_API_URL}/api/course/${editingCourse._id}`
-      : `${import.meta.env.VITE_API_URL}/api/course`;
+      ? `${apiUrl}/api/course/${editingCourse._id}`
+      : `${apiUrl}/api/course`;
 
     try {
       const response = await fetch(url, {

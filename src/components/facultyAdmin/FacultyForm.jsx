@@ -3,6 +3,11 @@ import React, { useState, useEffect } from "react";
 const FacultyForm = ({ fetchFaculties, editingFaculty, setEditingFaculty }) => {
   const [name, setName] = useState("");
 
+  // Set API URL based on NODE_ENV
+  const apiUrl = process.env.NODE_ENV === 'production'
+    ? 'https://backend-lms-render.onrender.com'
+    : 'http://localhost:5000';
+
   useEffect(() => {
     if (editingFaculty) {
       setName(editingFaculty.name);
@@ -13,8 +18,8 @@ const FacultyForm = ({ fetchFaculties, editingFaculty, setEditingFaculty }) => {
     e.preventDefault();
     const method = editingFaculty ? "PATCH" : "POST";
     const url = editingFaculty
-    ? `${import.meta.env.VITE_API_URL}/api/faculty/${editingFaculty._id}`
-    : `${import.meta.env.VITE_API_URL}/api/faculty`;
+      ? `${apiUrl}/api/faculty/${editingFaculty._id}`
+      : `${apiUrl}/api/faculty`;
     try {
       const response = await fetch(url, {
         method: method,
@@ -34,9 +39,19 @@ const FacultyForm = ({ fetchFaculties, editingFaculty, setEditingFaculty }) => {
   return (
     <form onSubmit={handleSubmit}>
       <h3>{editingFaculty ? "Edit Faculty" : "Add Faculty"}</h3>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} required />
+      <input 
+        type="text" 
+        value={name} 
+        onChange={(e) => setName(e.target.value)} 
+        placeholder="Faculty Name"
+        required 
+      />
       <button type="submit">{editingFaculty ? "Update" : "Create"}</button>
-      {editingFaculty && <button onClick={() => setEditingFaculty(null)}>Cancel</button>}
+      {editingFaculty && (
+        <button type="button" onClick={() => setEditingFaculty(null)}>
+          Cancel
+        </button>
+      )}
     </form>
   );
 };
