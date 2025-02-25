@@ -10,7 +10,12 @@ const FacultyList = () => {
   const [selectedFaculty, setSelectedFaculty] = useState("");
 
   // Use VITE_API_URL from the environment; if not set, default to localhost
-  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  // const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+  const apiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://backend-lms-render.onrender.com'
+  : 'http://localhost:5000';
+
 
   useEffect(() => {
     const fetchData = async () => {
