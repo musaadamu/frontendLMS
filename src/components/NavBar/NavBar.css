@@ -1,0 +1,28 @@
+.navbar {
+    background-color: #333; /* Dark background */
+    padding: 15px; /* Spacing around the nav */
+    display: flex; /* Flexbox for layout */
+    justify-content: center; /* Center the nav items */
+}
+
+.nav-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+    display: flex; /* Flexbox for horizontal layout */
+}
+
+.nav-item {
+    margin: 0 15px; /* Spacing between items */
+}
+
+.nav-link {
+    color: white; /* White text color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold; /* Bold text */
+    transition: color 0.3s; /* Smooth transition for hover effect */
+}
+
+.nav-link:hover {
+    color: #ff6347; /* Change color on hover */
+}
