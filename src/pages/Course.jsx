@@ -8,6 +8,9 @@ const Course = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Use VITE_API_URL from environment or fallback to localhost:5000
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   // Fetch courses and departments on component mount
   useEffect(() => {
     const fetchData = async () => {
@@ -15,13 +18,13 @@ const Course = () => {
         setLoading(true);
         
         // Fetch courses
-        const courseResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/course`);
+        const courseResponse = await fetch(`${apiUrl}/api/course`);
         if (!courseResponse.ok) throw new Error("Failed to fetch courses");
         const courseData = await courseResponse.json();
         setCourses(courseData.data.courses);
         
         // Fetch departments (to display department names for each course)
-        const deptResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/department`);
+        const deptResponse = await fetch(`${apiUrl}/api/department`);
         if (!deptResponse.ok) throw new Error("Failed to fetch departments");
         const deptData = await deptResponse.json();
         setDepartments(deptData.data.departments);
@@ -35,7 +38,7 @@ const Course = () => {
     };
 
     fetchData();
-  }, []);
+  }, [apiUrl]);
 
   // Create a mapping for quick lookup of department names
   const departmentMap = {};
@@ -72,7 +75,7 @@ const Course = () => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {courses.map(course => {
-            // Check if the course's department is an object with a name or an ID in the mapping.
+            // Check if the course's department is an object with a name or use the mapping.
             const deptName =
               typeof course.department === "object" && course.department.name
                 ? course.department.name
@@ -82,7 +85,6 @@ const Course = () => {
               <div key={course._id} className="card">
                 <div className="card-content">
                   <h2 className="card-title">{course.name}</h2>
-                  {/* Only render the department info if it exists */}
                   {deptName && (
                     <p className="card-subtitle">
                       <strong>Department:</strong> {deptName}

@@ -9,19 +9,22 @@ const Department = () => {
   const [error, setError] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
 
+  // Use VITE_API_URL from environment or fallback to localhost
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         
         // Fetch faculties (needed for faculty names)
-        const facultyResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/faculty`);
+        const facultyResponse = await fetch(`${apiUrl}/api/faculty`);
         if (!facultyResponse.ok) throw new Error("Failed to fetch faculties");
         const facultyData = await facultyResponse.json();
         setFaculties(facultyData.data.faculties);
         
         // Fetch all departments
-        const departmentResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/department`);
+        const departmentResponse = await fetch(`${apiUrl}/api/department`);
         if (!departmentResponse.ok) throw new Error("Failed to fetch departments");
         const departmentData = await departmentResponse.json();
         setDepartments(departmentData.data.departments);
@@ -35,7 +38,7 @@ const Department = () => {
     };
 
     fetchData();
-  }, []);
+  }, [apiUrl]);
 
   // Filter departments based on search term
   const filteredDepartments = searchTerm
