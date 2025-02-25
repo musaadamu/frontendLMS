@@ -9,7 +9,10 @@ const Course = () => {
   const [error, setError] = useState(null);
 
   // Use VITE_API_URL from environment or fallback to localhost:5000
-  const apiUrl = import.meta.env.VITE_API_URL || "https://backend-lms-render.onrender.com/";
+  // const apiUrl = import.meta.env.VITE_API_URL || "https://backend-lms-render.onrender.com";
+  const apiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://backend-lms-render.onrender.com'
+  : 'http://localhost:5000';
 
   // Fetch courses and departments on component mount
   useEffect(() => {

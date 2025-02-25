@@ -10,7 +10,12 @@ const Department = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Use VITE_API_URL from environment or fallback to localhost
-  const apiUrl = import.meta.env.VITE_API_URL || "https://backend-lms-render.onrender.com/";
+  // const apiUrl = import.meta.env.VITE_API_URL || "https://backend-lms-render.onrender.com";
+  
+  const apiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://backend-lms-render.onrender.com'
+  : 'http://localhost:5000';
+
   // const baseUrl = process.env.NODE_ENV === 'production'
   // ? 'https://coels-backend.onrender.com'
   // : 'http://localhost:5000';
