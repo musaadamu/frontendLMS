@@ -13,7 +13,7 @@ import DepartmentAdmin from "./components/DepartmentAdmin/DepartmentAdmin";
 import DepartmentList from "./components/Department/DepartmentList";
 import Faculty from './pages/Faculty';
 import Department from './pages/Department';
-import NavBar from './components/navBar/NavBar';
+import NavBar from './components/NavBar/NavBar';
 
 // Add proper TypeScript typing to the ProtectedRoute component
 const ProtectedRoute = ({ element }: { element: React.ReactNode }) => {
