@@ -27,13 +27,10 @@ const FacultyAdmin = () => {
   // State for departments (for linking courses)
   const [departments, setDepartments] = useState([]);
 
-  // Use VITE_API_URL from the environment; if not set, default to localhost:5000
-  // const apiUrl = import.meta.env.VITE_API_URL || "https://backend-lms-render.onrender.com";
-
+  // Set API URL based on NODE_ENV
   const apiUrl = process.env.NODE_ENV === 'production'
-  ? 'https://backend-lms-render.onrender.com'
-  : 'http://localhost:5000';
-
+    ? 'https://backend-lms-render.onrender.com'
+    : 'http://localhost:5000';
 
   useEffect(() => {
     fetchFaculties();
