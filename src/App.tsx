@@ -15,8 +15,10 @@ import Faculty from './pages/Faculty';
 import Department from './pages/Department';
 import NavBar from './components/navBar/NavBar';
 
-const ProtectedRoute = ({ element }) => {
-  const { isAuthenticated } = useContext(AuthContext);
+// Add proper TypeScript typing to the ProtectedRoute component
+const ProtectedRoute = ({ element }: { element: React.ReactNode }) => {
+  // Type the context properly to avoid TypeScript errors
+  const { isAuthenticated } = useContext(AuthContext as React.Context<{ isAuthenticated: boolean }>);
   return isAuthenticated ? element : <Navigate to="/login" />;
 };
 
