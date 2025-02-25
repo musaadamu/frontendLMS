@@ -10,8 +10,10 @@ const Department = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   // Use VITE_API_URL from environment or fallback to localhost
-  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
-
+  const apiUrl = import.meta.env.VITE_API_URL || "https://frontend-lms-six.vercel.app/";
+  // const baseUrl = process.env.NODE_ENV === 'production'
+  // ? 'https://coels-backend.onrender.com'
+  // : 'http://localhost:5000';
   useEffect(() => {
     const fetchData = async () => {
       try {

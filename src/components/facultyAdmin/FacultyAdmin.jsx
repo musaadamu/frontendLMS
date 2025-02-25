@@ -28,7 +28,7 @@ const FacultyAdmin = () => {
   const [departments, setDepartments] = useState([]);
 
   // Use VITE_API_URL from the environment; if not set, default to localhost:5000
-  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+  const apiUrl = import.meta.env.VITE_API_URL || "https://frontend-lms-six.vercel.app/";
 
   useEffect(() => {
     fetchFaculties();
