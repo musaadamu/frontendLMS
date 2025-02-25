@@ -3,6 +3,11 @@ import axios from 'axios';
 import { Link, useNavigate } from 'react-router-dom';
 import './Register.css';
 
+// Set the API URL based on the NODE_ENV value
+const apiUrl = process.env.NODE_ENV === 'production'
+  ? 'https://backend-lms-render.onrender.com'
+  : 'http://localhost:5000';
+
 const Register = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -21,7 +26,7 @@ const Register = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/register', {
+      const response = await axios.post(`${apiUrl}/api/auth/register`, {
         email,
         password,
         firstName,
