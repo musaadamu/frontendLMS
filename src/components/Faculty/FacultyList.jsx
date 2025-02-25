@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"; 
 import { Link } from "react-router-dom";
 import "./FacultyList.css"; // Import your custom styles
 
@@ -9,19 +9,22 @@ const FacultyList = () => {
   const [error, setError] = useState(null);
   const [selectedFaculty, setSelectedFaculty] = useState("");
 
+  // Use VITE_API_URL from the environment; if not set, default to localhost
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
         
         // Fetch faculties
-        const facultyResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/faculty`);
+        const facultyResponse = await fetch(`${apiUrl}/api/faculty`);
         if (!facultyResponse.ok) throw new Error("Failed to fetch faculties");
         const facultyData = await facultyResponse.json();
         setFaculties(facultyData.data.faculties);
         
         // Fetch departments
-        const departmentResponse = await fetch(`${import.meta.env.VITE_API_URL}/api/department`);
+        const departmentResponse = await fetch(`${apiUrl}/api/department`);
         if (!departmentResponse.ok) throw new Error("Failed to fetch departments");
         const departmentData = await departmentResponse.json();
         setDepartments(departmentData.data.departments);
@@ -35,7 +38,7 @@ const FacultyList = () => {
     };
 
     fetchData();
-  }, []);
+  }, [apiUrl]);
 
   const filteredDepartments = selectedFaculty 
     ? departments.filter(dept => dept.faculty._id === selectedFaculty)

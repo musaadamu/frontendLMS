@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import FacultyForm from "./FacultyForm";
-import CourseForm from "./CourseForm"; // Make sure you create this component similarly to FacultyForm
+import CourseForm from "./CourseForm"; // Ensure you have this component similarly to FacultyForm
 import { AuthContext } from "../Auth/AuthContext"; // Adjust the path if needed
 import "./FacultyAdmin.css"; // Dedicated CSS file for styling
 
@@ -27,6 +27,9 @@ const FacultyAdmin = () => {
   // State for departments (for linking courses)
   const [departments, setDepartments] = useState([]);
 
+  // Use VITE_API_URL from the environment; if not set, default to localhost:5000
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   useEffect(() => {
     fetchFaculties();
     fetchCourses();
@@ -36,7 +39,7 @@ const FacultyAdmin = () => {
   // Fetch faculties from the API
   const fetchFaculties = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/faculty`);
+      const response = await fetch(`${apiUrl}/api/faculty`);
       if (!response.ok) throw new Error("Failed to fetch faculties");
       const data = await response.json();
       setFaculties(data.data.faculties);
@@ -51,7 +54,7 @@ const FacultyAdmin = () => {
   const fetchCourses = async () => {
     try {
       setCoursesLoading(true);
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/course`);
+      const response = await fetch(`${apiUrl}/api/course`);
       if (!response.ok) throw new Error("Failed to fetch courses");
       const data = await response.json();
       setCourses(data.data.courses);
@@ -66,7 +69,7 @@ const FacultyAdmin = () => {
   // Fetch departments from the API
   const fetchDepartments = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/department`);
+      const response = await fetch(`${apiUrl}/api/department`);
       if (!response.ok) throw new Error("Failed to fetch departments");
       const data = await response.json();
       setDepartments(data.data.departments);
@@ -79,7 +82,7 @@ const FacultyAdmin = () => {
   const deleteFaculty = async (id) => {
     if (!window.confirm("Are you sure you want to delete this faculty?")) return;
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/faculty/${id}`, {
+      const response = await fetch(`${apiUrl}/api/faculty/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Failed to delete faculty");
@@ -93,7 +96,7 @@ const FacultyAdmin = () => {
   const deleteCourse = async (id) => {
     if (!window.confirm("Are you sure you want to delete this course?")) return;
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/course/${id}`, {
+      const response = await fetch(`${apiUrl}/api/course/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) throw new Error("Failed to delete course");
@@ -117,7 +120,7 @@ const FacultyAdmin = () => {
   return (
     <div className="faculty-admin">
       <header className="admin-header">
-        <h2>Manage Faculties & Courses</h2>
+        <h2>Manage Faculties &amp; Courses</h2>
         <button className="logout-button" onClick={handleLogout}>
           Logout
         </button>

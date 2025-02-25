@@ -38,10 +38,13 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  // Use VITE_API_URL from the environment; if not set, default to localhost:5000
+  const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   useEffect(() => {
     const fetchFaculties = async () => {
       try {
-        const response = await fetch(`${import.meta.env.VITE_API_URL}/api/faculty`);
+        const response = await fetch(`${apiUrl}/api/faculty`);
         if (!response.ok) throw new Error('Failed to fetch faculties');
         const data = await response.json();
         setFaculties(data.data.faculties);
@@ -54,7 +57,7 @@ const Home = () => {
     };
 
     fetchFaculties();
-  }, []);
+  }, [apiUrl]);
 
   if (loading) return <div className="loading">Loading faculties...</div>;
 
