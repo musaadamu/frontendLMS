@@ -28,10 +28,13 @@ const FacultyAdmin = () => {
   const [departments, setDepartments] = useState([]);
 
   // Set API URL based on NODE_ENV
-  const apiUrl = process.env.NODE_ENV === 'production'
+  const apiUrl = import.meta.env.NODE_ENV === 'production'
+
     ? 'https://backend-lms-render.onrender.com'
     : 'http://localhost:5000';
 
+    console.log(apiUrl)
+    
   useEffect(() => {
     fetchFaculties();
     fetchCourses();

@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import FacultyList from './components/Faculty/FacultyList';
 import CourseList from './components/Course/CourseList';
 import Course from './pages/Course';
-import CourseAdmin from './components/CourseAdmin/CourseAdmin';
+// import CourseAdmin from './components/CourseAdmin/CourseAdmin';
 import FacultyAdmin from "./components/facultyAdmin/FacultyAdmin";
 import DepartmentAdmin from "./components/DepartmentAdmin/DepartmentAdmin";
 import DepartmentList from "./components/Department/DepartmentList";
@@ -47,7 +47,7 @@ function App() {
               <Route path="/admin/faculty" element={<ProtectedRoute element={<FacultyAdmin />} />} />
               {/* Use facultyId as the parameter for DepartmentAdmin */}
               <Route path="/admin/department/:facultyId" element={<ProtectedRoute element={<DepartmentAdmin />} />} />
-              <Route path="/admin/course" element={<ProtectedRoute element={<CourseAdmin />} />} />
+            
             </Routes>
           </main>
 

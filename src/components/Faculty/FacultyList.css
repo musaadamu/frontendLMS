@@ -1,230 +1,229 @@
 /* Container styling */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #f8f9fa; /* Light grey from second version */
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-  }
-  
-  /* Header styling */
-  .header {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    margin-bottom: 2rem;
-    background-color: #343a40; /* Dark grey */
-    color: #fff;
-    padding: 10px 15px;
-    border-radius: 4px;
-  }
-  
-  /* Sub-header */
-  .sub-header {
-    background-color: #e9ecef; /* Light greyish */
-    color: #495057;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  /* Layout container */
-  .layout {
-    display: flex;
-    flex-direction: row;
-    gap: 20px;
-  }
-  
-  /* Sidebar Filter Section */
-  .filter-section {
-    flex: 1;
-    background-color: #d1ecf1; /* Light blue */
-    padding: 15px;
-    border-radius: 4px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Inner Filter Container */
-  .filter-container {
-    background-color: #bee5eb; /* Slightly darker light blue */
-    padding: 10px;
-    border-radius: 4px;
-  }
-  
-  /* Filter Label */
-  .filter-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-size: 1.2rem;
-    color: #555;
-    font-weight: bold;
-  }
-  
-  /* Filter Select */
-  .filter-select {
-    width: 100%;
-    padding: 0.75rem;
-    font-size: 1rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    margin-bottom: 5px;
-  }
-  
-  /* Filter Description */
-  .filter-description {
-    font-size: 0.9em;
-    color: #555;
-  }
-  
-  /* Main Results Section */
-  .results-section {
-    flex: 3;
-    background-color: #fff3cd; /* Light yellow */
-    padding: 15px;
-    border-radius: 4px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  /* Card Styling */
-  .card {
-    background-color: #d4edda; /* Light green */
-    border: 1px solid #c3e6cb;
-    border-radius: 4px;
-    overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  /* Card Content */
-  .card-content {
-    text-align: center;
-    padding: 15px;
-  }
-  
-  /* Card Title */
-  .card-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-    background-color: #28a745; /* Green */
-    color: #fff;
-    padding: 8px;
-    border-radius: 4px;
-  }
-  
-  /* Card Subtitle */
-  .card-subtitle {
-    font-size: 1.2rem;
-    background-color: #c3e6cb;
-    color: #155724;
-    padding: 5px;
-    margin-top: 5px;
-    margin-bottom: 1rem;
-    border-radius: 4px;
-  }
-  
-  /* Card Description */
-  .card-description {
-    background-color: #ffffff;
-    color: #333;
-    padding: 10px;
-    margin-top: 10px;
-    border-radius: 4px;
-  }
-  
-  /* Card Button */
-  .card-button {
-    display: inline-block;
-    background-color: #007bff; /* Blue */
-    color: #fff;
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    margin-top: 10px;
-  }
-  
-  .card-button:hover {
-    background-color: #0056b3;
-  }
-  
-  /* Alert Styles */
-  .alert {
-    padding: 15px;
-    border-radius: 4px;
-    margin-bottom: 20px;
-  }
-  
-  .alert-warning {
-    background-color: #fff3cd;
-    color: #856404;
-    border: 1px solid #ffeeba;
-  }
-  
-  .alert-error {
-    background-color: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-  }
-  
-  /* Spinner */
-  .spinner {
-    border: 4px solid rgba(0, 0, 0, 0.1);
-    border-top: 4px solid #007bff;
-    border-radius: 50%;
-    width: 3rem;
-    height: 3rem;
-    animation: spin 1s linear infinite;
-  }
-  
-  .faculty-list {
-    margin-top: 20px;
-    padding: 15px;
-    background: #f0f8ff; /* Light, calming blue background */
-    border: 1px solid #d1ecf1;
-    border-radius: 8px;
-  }
-  
-  .faculty-list h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: #343a40;
-    text-align: center;
-    border-bottom: 2px solid #007bff;
-    padding-bottom: 5px;
-  }
-  
-  .faculty-list ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .faculty-list li {
-    padding: 8px 12px;
-    margin-bottom: 8px;
-    background: #ffffff;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-    font-size: 1.1rem;
-    color: #495057;
-    transition: background-color 0.3s ease;
-  }
-  
-  .faculty-list li:hover {
-    background: #e2e6ea;
-    cursor: pointer;
-  }
-  
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: #f8f9fa; /* Light grey from second version */
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
 
-  @keyframes spin {
-    to { transform: rotate(360deg); }
-  }
-  
+/* Header styling */
+.header {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem;
+  background-color: #343a40; /* Dark grey */
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+/* Sub-header */
+.sub-header {
+  background-color: #e9ecef; /* Light greyish */
+  color: #495057;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+/* Layout container */
+.layout {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+/* Sidebar Filter Section */
+.filter-section {
+  flex: 1;
+  background-color: #d1ecf1; /* Light blue */
+  padding: 15px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Inner Filter Container */
+.filter-container {
+  background-color: #bee5eb; /* Slightly darker light blue */
+  padding: 10px;
+  border-radius: 4px;
+}
+
+/* Filter Label */
+.filter-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+  color: #555;
+  font-weight: bold;
+}
+
+/* Filter Select */
+.filter-select {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+/* Filter Description */
+.filter-description {
+  font-size: 0.9em;
+  color: #555;
+}
+
+/* Main Results Section */
+.results-section {
+  flex: 3;
+  background-color: #fff3cd; /* Light yellow */
+  padding: 15px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card Styling */
+.card {
+  background-color: #d4edda; /* Light green */
+  border: 1px solid #c3e6cb;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Content */
+.card-content {
+  text-align: center;
+  padding: 15px;
+}
+
+/* Card Title */
+.card-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  background-color: #28a745; /* Green */
+  color: #fff;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+/* Card Subtitle */
+.card-subtitle {
+  font-size: 1.2rem;
+  background-color: #c3e6cb;
+  color: #155724;
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 1rem;
+  border-radius: 4px;
+}
+
+/* Card Description */
+.card-description {
+  background-color: #ffffff;
+  color: #333;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+
+/* Card Button */
+.card-button {
+  display: inline-block;
+  background-color: #007bff; /* Blue */
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.card-button:hover {
+  background-color: #0056b3;
+}
+
+/* Alert Styles */
+.alert {
+  padding: 15px;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.alert-warning {
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.alert-error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+/* Spinner */
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  animation: spin 1s linear infinite;
+}
+
+/* Faculty list styling */
+.faculty-list {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f0f8ff; /* Light, calming blue background */
+  border: 1px solid #d1ecf1;
+  border-radius: 8px;
+}
+
+.faculty-list h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #343a40;
+  text-align: center;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 5px;
+}
+
+.faculty-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.faculty-list li {
+  padding: 8px 12px;
+  margin-bottom: 8px;
+  background: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  color: #495057;
+  transition: background-color 0.3s ease;
+}
+
+.faculty-list li:hover {
+  background: #e2e6ea;
+  cursor: pointer;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}

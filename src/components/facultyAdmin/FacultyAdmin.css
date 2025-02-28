@@ -1,122 +1,148 @@
 /* Global container styles */
 .faculty-admin {
-    max-width: 1024px;
-    margin: 0 auto;
-    padding: 1.5rem;
-    font-family: 'Helvetica Neue', Arial, sans-serif;
-    background: #f0f4f8;
-  }
-  
-  /* Header styling */
+  max-width: 1024px; /* Set max width for the admin panel */
+  margin: 0 auto; /* Center the content */
+  padding: 1.5rem; /* Padding around the container */
+  font-family: 'Helvetica Neue', Arial, sans-serif; /* Font settings */
+  background: #f0f4f8; /* Light background color */
+}
+
+/* Header styling */
+.admin-header {
+  display: flex;
+  align-items: center; /* Center items vertically */
+  justify-content: space-between; /* Space between title and logout button */
+  margin-bottom: 2rem; /* Space below header */
+}
+
+.admin-header h2 {
+  font-size: 2rem; /* Larger font size for titles */
+}
+
+/* Logout button styles */
+.logout-button {
+  background-color: #e53e3e; /* Red background for logout */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 0.5rem 1rem; /* Padding for button */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.logout-button:hover {
+  background-color: #c53030; /* Darker red on hover */
+}
+
+/* Section title */
+.section-title {
+  font-size: 1.75rem; /* Font size for section titles */
+  margin-bottom: 1rem; /* Space below titles */
+  text-align: center; /* Center titles */
+}
+
+/* Faculty list grid */
+.faculty-list {
+  display: grid; /* Use grid layout */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+  gap: 1rem; /* Space between items */
+  margin-bottom: 2rem; /* Space below list */
+}
+
+/* Faculty card styles */
+.faculty-card {
+  background: #fff; /* White background for cards */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding: 1rem; /* Padding inside cards */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transition effects */
+  text-align: center; /* Center text in cards */
+}
+
+.faculty-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Darker shadow on hover */
+}
+
+.faculty-name {
+  font-size: 1.5rem; /* Font size for faculty names */
+  margin-bottom: 0.75rem; /* Space below names */
+}
+
+/* Actions inside each card */
+.faculty-card-actions {
+  display: flex; /* Flex layout for buttons */
+  flex-direction: column; /* Stack buttons vertically */
+  gap: 0.5rem; /* Space between buttons */
+  justify-content: center; /* Center buttons */
+  align-items: center; /* Center align items */
+}
+
+.faculty-card-actions button {
+  background-color: #4299e1; /* Button background color */
+  color: #fff; /* White text */
+  border: none; /* No border */
+  padding: 0.5rem 1rem; /* Padding for buttons */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor on hover */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  width: 100%; /* Full width buttons */
+}
+
+.faculty-card-actions button:hover {
+  background-color: #2b6cb0; /* Darker blue on hover */
+}
+
+/* Department link styles */
+.dept-link {
+  display: inline-block; /* Block display for link */
+  background-color: #48bb78; /* Green background */
+  color: #fff; /* White text */
+  padding: 0.5rem 1rem; /* Padding for link */
+  border-radius: 4px; /* Rounded corners */
+  text-decoration: none; /* No underline */
+  transition: background-color 0.3s ease; /* Smooth transition */
+  width: 100%; /* Full width link */
+  text-align: center; /* Center text */
+}
+
+.dept-link:hover {
+  background-color: #38a169; /* Darker green on hover */
+}
+
+/* Faculty form section */
+.faculty-form-section {
+  background: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  padding: 1rem; /* Padding for form section */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Loading and error messages */
+.loading,
+.error {
+  text-align: center; /* Center text */
+  font-size: 1.25rem; /* Font size for messages */
+  margin-top: 2rem; /* Space above messages */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
   .admin-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 2rem;
+      flex-direction: column; /* Stack header on mobile */
+      align-items: flex-start; /* Align items to the left */
   }
-  
-  .logout-button {
-    background-color: #e53e3e;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+  .admin-header h2 {
+      font-size: 1.5rem; /* Smaller title size */
+      margin-bottom: 10px; /* Space below title */
   }
-  
-  .logout-button:hover {
-    background-color: #c53030;
-  }
-  
-  /* Section title */
-  .section-title {
-    font-size: 1.75rem;
-    margin-bottom: 1rem;
-    text-align: center;
-  }
-  
-  /* Faculty list grid */
+
   .faculty-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-bottom: 2rem;
+      grid-template-columns: 1fr; /* Stack cards vertically on mobile */
   }
-  
-  /* Faculty card styles */
-  .faculty-card {
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 1rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: center;
+
+  button {
+      width: 100%; /* Full width buttons on mobile */
   }
-  
-  .faculty-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-  
-  .faculty-name {
-    font-size: 1.5rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  /* Actions inside each card */
-  .faculty-card-actions {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .faculty-card-actions button {
-    background-color: #4299e1;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-  }
-  
-  .faculty-card-actions button:hover {
-    background-color: #2b6cb0;
-  }
-  
-  .dept-link {
-    display: inline-block;
-    background-color: #48bb78;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-    width: 100%;
-    text-align: center;
-  }
-  
-  .dept-link:hover {
-    background-color: #38a169;
-  }
-  
-  /* Faculty form section */
-  .faculty-form-section {
-    background: #fff;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  }
-  
-  /* Loading and error messages */
-  .loading,
-  .error {
-    text-align: center;
-    font-size: 1.25rem;
-    margin-top: 2rem;
-  }
-  
+}
